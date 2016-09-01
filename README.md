@@ -18,7 +18,7 @@ pod 'MBProgressHUD', '1.0'
 pod 'SDWebImage', '3.7'
 pod 'ZendeskSDK'
 pod 'ZDCChat', '1.2.1.1'
-``
+```
 
 ## Installation
 
@@ -32,6 +32,9 @@ Enable the embedded swift code option.
 
 Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes
 
+## Usage
+
+Initialize the `ZDSMPluginManager`.
 
 ## Authors
 
