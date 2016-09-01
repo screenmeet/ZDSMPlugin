@@ -10,16 +10,29 @@
 
 #import "SMSettingsViewController.h"
 #import "SMAccountViewController.h"
-
-#import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
-#import <MBProgressHUD/MBProgressHUD.h>
-
 #import "SMMessagesViewController.h"
 
+// From Pods
+#import <MBProgressHUD/MBProgressHUD.h>
 
+// ScreenMeet SDK
+#import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
+
+// Zendesk SDK
+#import <ZendeskSDK/ZendeskSDK.h>
+#import <ZendeskSDK/ZDKSupportView.h>
+#import <ZDCChat/ZDCChat.h>
 
 #define kChatWidgetTag 2001
 
+static NSString *SM_API_KEY_SB      = @"19ef50c67e8648f08dfc4702f992159d";
+static NSString *SM_API_KEY_PROD    = @"f6b5eda921c749968fa4cd240e7fbe1c";
+
+static NSString *ZENDESK_APP_ID     = @"8ecc5e5b0177e72437db6ee0c0889ea6b87023348faeb750";
+static NSString *ZENDESK_URL        = @"https://screenmeetdev.zendesk.com";
+static NSString *ZENDDESK_CLIENT_ID = @"mobile_sdk_client_a224f34d64dae33a666a";
+
+NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
 @interface ScreenMeetManager () <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 
@@ -52,8 +65,8 @@ static ScreenMeetManager *manager = nil;
 {
     self = [super init];
     if (self) {
-        self.isProduction = NO;
         [self initiateScreenMeetinProd:NO];
+        
     }
     return self;
 }
@@ -81,12 +94,16 @@ static ScreenMeetManager *manager = nil;
 + (UIBarButtonItem *)createCloseButtonItemWithTarget:(id)target forSelector:(SEL)action
 {
     UIButton *tempButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     [tempButton setFrame:CGRectMake(0, 0, 24.0f, 24.0f)];
-//    [tempButton setImage:[[UIImage imageNamed:@"close_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     [tempButton setTitle:@"<" forState:UIControlStateNormal];
-    [tempButton setTintColor:[UIColor whiteColor]];
+    [tempButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [tempButton setTintColor:[UIColor blueColor]];
+    
     [tempButton addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithCustomView:tempButton];
+    
     return button;
 }
 
@@ -101,11 +118,45 @@ static ScreenMeetManager *manager = nil;
 
 - (void)initiateScreenMeetinProd:(BOOL)inProd
 {
+    self.isProduction = inProd;
+    
     if (inProd) {
-        [ScreenMeet initSharedInstance:@"f6b5eda921c749968fa4cd240e7fbe1c" environment:EnvironmentTypePRODUCTION];
+        [ScreenMeet initSharedInstance:SM_API_KEY_PROD environment:EnvironmentTypePRODUCTION];
     } else {
-        [ScreenMeet initSharedInstance:@"19ef50c67e8648f08dfc4702f992159d" environment:EnvironmentTypeSANDBOX];
+        [ScreenMeet initSharedInstance:SM_API_KEY_SB environment:EnvironmentTypeSANDBOX];
     }
+    
+    //
+    // Enable logging for debug builds
+    //
+    
+#ifdef DEBUG
+    [ZDKLogger enable:YES];
+#else
+    [ZDKLogger enable:NO];
+#endif
+    
+    //
+    // Initialize the Zendesk SDK
+    //
+    
+    [[ZDKConfig instance] initializeWithAppId:ZENDESK_APP_ID
+                                   zendeskUrl:ZENDESK_URL
+                                     clientId:ZENDDESK_CLIENT_ID];
+    
+    //
+    // Initialise the chat SDK
+    //
+    [ZDCChat configure:^(ZDCConfig *defaults) {
+        
+        defaults.accountKey                         = @"476NiNORvNGOc4WSDE87u8zKNUvtYxBx";
+        defaults.preChatDataRequirements.department = ZDCPreChatDataOptional;
+        defaults.preChatDataRequirements.message    = ZDCPreChatDataOptional;
+    }];
+    
+    //
+    //  The rest of the Mobile SDK code can be found in ZenHelpViewController.m
+    //
 }
 
 - (void)handleDoubleTap
@@ -115,7 +166,6 @@ static ScreenMeetManager *manager = nil;
 
 - (void)showMenu
 {
-    
     NSString *menuTitle = @"None";
     
     if ([ScreenMeet sharedInstance]) {
@@ -216,26 +266,13 @@ static ScreenMeetManager *manager = nil;
         
         [alert addAction:showURLAction];
         
-//        UIAlertAction *accountAction = [UIAlertAction actionWithTitle:@"Account" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            
-//            GGThemedNavigationController *navVC = [[GGThemedNavigationController alloc] initWithRootViewController:[[SMAccountViewController alloc] init]];
-//            
-//            
-//            [[GGUIManager sharedManager] presentViewController:navVC animated:YES completion:^{
-//                
-//            }];
-//        }];
-//        
-//        [alert addAction:accountAction];
-        
         UIAlertAction *settingsAction = [UIAlertAction actionWithTitle:@"Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
             UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[SMSettingsViewController alloc] init]];
             
-            
-//            [[GGUIManager sharedManager] presentViewController:navVC animated:YES completion:^{
-//                
-//            }];
+            [ScreenMeetManager presentViewControllerFromWindowRootViewController:navVC animated:YES completion:^{
+                
+            }];
         }];
         
         [alert addAction:settingsAction];
@@ -247,12 +284,7 @@ static ScreenMeetManager *manager = nil;
                 
                 self.tokenAlert = [[UIAlertView alloc] initWithTitle:@"Enter Token" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login",nil];
                 self.tokenAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
-                
-//                UITextField *aTextField = [self.tokenAlert textFieldAtIndex:0];
-//                if (aTextField) {
-//                    aTextField.text = @"3gfl0w8eeisks8o4cwsoco4cc0owsss88wcs4ookkoccgk4844";
-//                }
-                
+    
                 [self.tokenAlert show];
             }];
             

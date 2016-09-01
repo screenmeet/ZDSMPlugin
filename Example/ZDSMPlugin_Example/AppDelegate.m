@@ -8,17 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import <ZendeskSDK/ZendeskSDK.h>
-#import <ZendeskSDK/ZDKSupportView.h>
-#import <ZDCChat/ZDCChat.h>
-
 #import "ScreenMeetManager.h"
-
-static NSString * APP_ID      = @"8ecc5e5b0177e72437db6ee0c0889ea6b87023348faeb750";
-static NSString * ZENDESK_URL = @"https://screenmeetdev.zendesk.com";
-static NSString * CLIENT_ID   = @"mobile_sdk_client_a224f34d64dae33a666a";
-
-NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
 @interface AppDelegate ()
 
@@ -29,39 +19,6 @@ NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    
-    //
-    // Enable logging for debug builds
-    //
-    
-#ifdef DEBUG
-    [ZDKLogger enable:YES];
-#else
-    [ZDKLogger enable:NO];
-#endif
-    
-    //
-    // Initialize the Zendesk SDK
-    //
-    
-    [[ZDKConfig instance] initializeWithAppId:APP_ID
-                                   zendeskUrl:ZENDESK_URL
-                                     clientId:CLIENT_ID];
-    
-    //
-    // Initialise the chat SDK
-    //
-    [ZDCChat configure:^(ZDCConfig *defaults) {
-        
-        defaults.accountKey                         = @"476NiNORvNGOc4WSDE87u8zKNUvtYxBx";
-        defaults.preChatDataRequirements.department = ZDCPreChatDataOptional;
-        defaults.preChatDataRequirements.message    = ZDCPreChatDataOptional;
-    }];
-    
-    //
-    //  The rest of the Mobile SDK code can be found in ZenHelpViewController.m
-    //
     
     [ScreenMeetManager sharedManager];
     
