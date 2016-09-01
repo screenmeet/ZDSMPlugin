@@ -1,0 +1,36 @@
+PODS:
+  - JSQSystemSoundPlayer (4.4.0)
+  - MBProgressHUD (1.0.0)
+  - SDWebImage (3.7.0):
+    - SDWebImage/Core (= 3.7.0)
+  - SDWebImage/Core (3.7.0)
+  - ZDCChat (1.2.1.1):
+    - ZDCChat/Core (= 1.2.1.1)
+    - ZDCChat/Localization (= 1.2.1.1)
+  - ZDCChat/Core (1.2.1.1)
+  - ZDCChat/Localization (1.2.1.1):
+    - ZDCChat/Core
+  - ZendeskSDK (1.7.1.1):
+    - ZendeskSDK/Providers (= 1.7.1.1)
+    - ZendeskSDK/UI (= 1.7.1.1)
+  - ZendeskSDK/Providers (1.7.1.1)
+  - ZendeskSDK/UI (1.7.1.1):
+    - ZendeskSDK/Providers
+
+DEPENDENCIES:
+  - JSQSystemSoundPlayer (= 4.4.0)
+  - MBProgressHUD (= 1.0)
+  - SDWebImage (= 3.7)
+  - ZDCChat (= 1.2.1.1)
+  - ZendeskSDK
+
+SPEC CHECKSUMS:
+  JSQSystemSoundPlayer: 126ccc4a08db8fc3036bd07d33b0f8eda1559476
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  SDWebImage: b42db92951f9d565c55f1d7f1d5efe47e33a7515
+  ZDCChat: fa0175c1bd7a0ddb793f0f0fbee68d8b84399cb9
+  ZendeskSDK: db3eb1621bff50ca9f1f4621462642912a5b7966
+
+PODFILE CHECKSUM: 66f24e3d4bbb4620a3c79c03f4f2308ca2d1782b
+
+COCOAPODS: 1.0.1

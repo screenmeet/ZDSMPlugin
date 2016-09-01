@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'ZDSMPlugin_Example' do
+
+    pod 'JSQSystemSoundPlayer', '4.4.0'
+    pod 'MBProgressHUD', '1.0'
+    pod 'SDWebImage', '3.7'
+    pod 'ZendeskSDK'
+    pod 'ZDCChat', '1.2.1.1'
+ 
+end

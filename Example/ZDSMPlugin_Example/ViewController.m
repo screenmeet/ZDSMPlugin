@@ -1,0 +1,38 @@
+//
+//  ViewController.m
+//  ZDSMPlugin_Example
+//
+//  Created by Adrian Cayaco on 01/09/2016.
+//  Copyright © 2016 Screenmeet. All rights reserved.
+//
+
+#import "ViewController.h"
+
+#import "ScreenMeetManager.h"
+
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Actions
+
+- (IBAction)startChatButtonWasPressed:(id)sender
+{
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ScreenMeetManager sharedManager] messagesVC]] animated:YES completion:^{
+        
+    }];
+}
+
+@end
