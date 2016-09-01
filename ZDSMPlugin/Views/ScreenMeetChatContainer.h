@@ -1,9 +1,9 @@
 //
 //  ScreenMeetChatContainer.h
-//  Remember The Date
+//  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 16/08/2016.
-//  Copyright © 2016 RememberTheDate. All rights reserved.
+//  Copyright © 2016 Screenmeet. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

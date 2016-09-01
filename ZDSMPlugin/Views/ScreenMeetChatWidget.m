@@ -1,9 +1,9 @@
 //
 //  ScreenMeetChatWidget.m
-//  Remember The Date
+//  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 14/08/2016.
-//  Copyright © 2016 RememberTheDate. All rights reserved.
+//  Copyright © 2016 ScreenMeet. All rights reserved.
 //
 
 #import <QuartzCore/QuartzCore.h>
