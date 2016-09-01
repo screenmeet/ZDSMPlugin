@@ -81,6 +81,10 @@
 		704F4E7D1D77F42F008FB790 /* ScreenMeetToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E3B1D77F42F008FB790 /* ScreenMeetToast.m */; };
 		704F4E7E1D77F43D008FB790 /* ScreenMeetSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */; };
 		704F4E7F1D77F43D008FB790 /* ScreenMeetSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		704F4E851D77F8CA008FB790 /* avatar_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E811D77F8CA008FB790 /* avatar_placeholder@3x.png */; };
+		704F4E861D77F8CA008FB790 /* icoUser.png in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E821D77F8CA008FB790 /* icoUser.png */; };
+		704F4E871D77F8CA008FB790 /* icoUser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E831D77F8CA008FB790 /* icoUser@2x.png */; };
+		704F4E881D77F8CA008FB790 /* icoUser@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E841D77F8CA008FB790 /* icoUser@3x.png */; };
 		E203264719F60F7057B09A1F /* libPods-ZDSMPlugin_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F7A1D607729C32D43EDA8E38 /* libPods-ZDSMPlugin_Example.a */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +236,10 @@
 		704F4E391D77F42F008FB790 /* ScreenMeetChatWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetChatWidget.m; sourceTree = "<group>"; };
 		704F4E3A1D77F42F008FB790 /* ScreenMeetToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMeetToast.h; sourceTree = "<group>"; };
 		704F4E3B1D77F42F008FB790 /* ScreenMeetToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetToast.m; sourceTree = "<group>"; };
+		704F4E811D77F8CA008FB790 /* avatar_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_placeholder@3x.png"; sourceTree = "<group>"; };
+		704F4E821D77F8CA008FB790 /* icoUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icoUser.png; sourceTree = "<group>"; };
+		704F4E831D77F8CA008FB790 /* icoUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icoUser@2x.png"; sourceTree = "<group>"; };
+		704F4E841D77F8CA008FB790 /* icoUser@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icoUser@3x.png"; sourceTree = "<group>"; };
 		86B8EABB63A8AD119C0112B6 /* Pods-ZDSMPlugin_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZDSMPlugin_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZDSMPlugin_Example/Pods-ZDSMPlugin_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F7A1D607729C32D43EDA8E38 /* libPods-ZDSMPlugin_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZDSMPlugin_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -321,6 +329,10 @@
 		704F4DB41D77F42F008FB790 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				704F4E811D77F8CA008FB790 /* avatar_placeholder@3x.png */,
+				704F4E821D77F8CA008FB790 /* icoUser.png */,
+				704F4E831D77F8CA008FB790 /* icoUser@2x.png */,
+				704F4E841D77F8CA008FB790 /* icoUser@3x.png */,
 				704F4DB51D77F42F008FB790 /* chat_box@2x.png */,
 				704F4DB61D77F42F008FB790 /* icon_widget.png */,
 				704F4DB71D77F42F008FB790 /* icon_widget@2x.png */,
@@ -613,12 +625,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				704F4E861D77F8CA008FB790 /* icoUser.png in Resources */,
 				704F4E771D77F42F008FB790 /* JSQMessagesTypingIndicatorFooterView.xib in Resources */,
 				704F4E521D77F42F008FB790 /* JSQMessagesViewController.xib in Resources */,
 				704F4E421D77F42F008FB790 /* SMAccountViewController.xib in Resources */,
 				704F4E481D77F42F008FB790 /* JSQMessagesAssets.bundle in Resources */,
 				704F4E751D77F42F008FB790 /* JSQMessagesToolbarContentView.xib in Resources */,
 				704F4E6D1D77F42F008FB790 /* JSQMessagesCollectionViewCellOutgoing.xib in Resources */,
+				704F4E851D77F8CA008FB790 /* avatar_placeholder@3x.png in Resources */,
 				704F4E3D1D77F42F008FB790 /* icon_widget.png in Resources */,
 				704F4E3C1D77F42F008FB790 /* chat_box@2x.png in Resources */,
 				704F4E3F1D77F42F008FB790 /* icon_widget@3x.png in Resources */,
@@ -629,8 +643,10 @@
 				704F4E3E1D77F42F008FB790 /* icon_widget@2x.png in Resources */,
 				704F4DA91D77F3AD008FB790 /* Assets.xcassets in Resources */,
 				704F4DA71D77F3AD008FB790 /* Main.storyboard in Resources */,
+				704F4E881D77F8CA008FB790 /* icoUser@3x.png in Resources */,
 				704F4E6B1D77F42F008FB790 /* JSQMessagesCollectionViewCellIncoming.xib in Resources */,
 				704F4E451D77F42F008FB790 /* SMSettingsViewController.xib in Resources */,
+				704F4E871D77F8CA008FB790 /* icoUser@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
