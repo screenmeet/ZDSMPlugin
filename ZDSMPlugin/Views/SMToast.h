@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class  ScreenMeetToast;
+@class  SMToast;
 
 @protocol ScreenMeetToastDelegate <NSObject>
 
 @optional
 
-- (void)SMToastWillBeRemovedFromView:(ScreenMeetToast *)screenMeetToast;
-- (void)SMToastWasRemovedFromView:(ScreenMeetToast *)screenMeetToast;
+- (void)SMToastWillBeRemovedFromView:(SMToast *)screenMeetToast;
+- (void)SMToastWasRemovedFromView:(SMToast *)screenMeetToast;
 
 @end
 
-@interface ScreenMeetToast : UIView
+@interface SMToast : UIView
 
 @property (assign, nonatomic) id<ScreenMeetToastDelegate> delegate;
 

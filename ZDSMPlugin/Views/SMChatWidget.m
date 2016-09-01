@@ -1,5 +1,5 @@
 //
-//  ScreenMeetChatWidget.m
+//  SMChatWidget.m
 //  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 14/08/2016.
@@ -7,19 +7,19 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ScreenMeetChatWidget.h"
-#import "ScreenMeetToast.h"
-#import "ScreenMeetChatContainer.h"
+#import "SMChatWidget.h"
+#import "SMToast.h"
+#import "SMChatContainer.h"
 #import "ZDSMPluginManager.h"
 
 #define kDefaultFrame           CGRectMake(0.0f, 0.0f, 40.0f, 40.0f)
 #define kDefaultFlipThreshold   0.75
 
-@interface ScreenMeetChatWidget ()
+@interface SMChatWidget ()
 
 @property (strong, nonatomic) UIButton                *actionButton;
 @property (strong, nonatomic) UIImageView             *widgetImageView;
-@property (strong, nonatomic) ScreenMeetChatContainer *chatContainer;
+@property (strong, nonatomic) SMChatContainer *chatContainer;
 
 @property (assign, nonatomic) BOOL wasDragged;
 
@@ -29,7 +29,7 @@
 
 @end
 
-@implementation ScreenMeetChatWidget
+@implementation SMChatWidget
 
 - (instancetype)init
 {
@@ -223,7 +223,7 @@
 
         if (!self.chatContainer) {
             CGFloat originX           = self.frame.origin.x + self.frame.size.width + 10.0f;
-            self.chatContainer        = [[ScreenMeetChatContainer alloc] initWithFrame:CGRectMake(originX, self.frame.origin.y, [UIScreen mainScreen].bounds.size.width - originX - 10.0f, 100.0f)];
+            self.chatContainer        = [[SMChatContainer alloc] initWithFrame:CGRectMake(originX, self.frame.origin.y, [UIScreen mainScreen].bounds.size.width - originX - 10.0f, 100.0f)];
             
             [self.superview addSubview:self.chatContainer];
         }

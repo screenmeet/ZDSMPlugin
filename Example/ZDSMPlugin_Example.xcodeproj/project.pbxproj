@@ -76,9 +76,9 @@
 		704F4E781D77F42F008FB790 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E311D77F42F008FB790 /* LICENSE.txt */; };
 		704F4E791D77F42F008FB790 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E321D77F42F008FB790 /* README.md */; };
 		704F4E7A1D77F42F008FB790 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E341D77F42F008FB790 /* UIImageView+UIActivityIndicatorForSDWebImage.m */; };
-		704F4E7B1D77F42F008FB790 /* ScreenMeetChatContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E371D77F42F008FB790 /* ScreenMeetChatContainer.m */; };
-		704F4E7C1D77F42F008FB790 /* ScreenMeetChatWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E391D77F42F008FB790 /* ScreenMeetChatWidget.m */; };
-		704F4E7D1D77F42F008FB790 /* ScreenMeetToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E3B1D77F42F008FB790 /* ScreenMeetToast.m */; };
+		704F4E7B1D77F42F008FB790 /* SMChatContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E371D77F42F008FB790 /* SMChatContainer.m */; };
+		704F4E7C1D77F42F008FB790 /* SMChatWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E391D77F42F008FB790 /* SMChatWidget.m */; };
+		704F4E7D1D77F42F008FB790 /* SMToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4E3B1D77F42F008FB790 /* SMToast.m */; };
 		704F4E7E1D77F43D008FB790 /* ScreenMeetSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */; };
 		704F4E7F1D77F43D008FB790 /* ScreenMeetSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		704F4E851D77F8CA008FB790 /* avatar_placeholder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 704F4E811D77F8CA008FB790 /* avatar_placeholder@3x.png */; };
@@ -230,12 +230,12 @@
 		704F4E321D77F42F008FB790 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		704F4E331D77F42F008FB790 /* UIImageView+UIActivityIndicatorForSDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+UIActivityIndicatorForSDWebImage.h"; sourceTree = "<group>"; };
 		704F4E341D77F42F008FB790 /* UIImageView+UIActivityIndicatorForSDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+UIActivityIndicatorForSDWebImage.m"; sourceTree = "<group>"; };
-		704F4E361D77F42F008FB790 /* ScreenMeetChatContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMeetChatContainer.h; sourceTree = "<group>"; };
-		704F4E371D77F42F008FB790 /* ScreenMeetChatContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetChatContainer.m; sourceTree = "<group>"; };
-		704F4E381D77F42F008FB790 /* ScreenMeetChatWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMeetChatWidget.h; sourceTree = "<group>"; };
-		704F4E391D77F42F008FB790 /* ScreenMeetChatWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetChatWidget.m; sourceTree = "<group>"; };
-		704F4E3A1D77F42F008FB790 /* ScreenMeetToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMeetToast.h; sourceTree = "<group>"; };
-		704F4E3B1D77F42F008FB790 /* ScreenMeetToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetToast.m; sourceTree = "<group>"; };
+		704F4E361D77F42F008FB790 /* SMChatContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatContainer.h; sourceTree = "<group>"; };
+		704F4E371D77F42F008FB790 /* SMChatContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatContainer.m; sourceTree = "<group>"; };
+		704F4E381D77F42F008FB790 /* SMChatWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatWidget.h; sourceTree = "<group>"; };
+		704F4E391D77F42F008FB790 /* SMChatWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatWidget.m; sourceTree = "<group>"; };
+		704F4E3A1D77F42F008FB790 /* SMToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMToast.h; sourceTree = "<group>"; };
+		704F4E3B1D77F42F008FB790 /* SMToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMToast.m; sourceTree = "<group>"; };
 		704F4E811D77F8CA008FB790 /* avatar_placeholder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "avatar_placeholder@3x.png"; sourceTree = "<group>"; };
 		704F4E821D77F8CA008FB790 /* icoUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icoUser.png; sourceTree = "<group>"; };
 		704F4E831D77F8CA008FB790 /* icoUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icoUser@2x.png"; sourceTree = "<group>"; };
@@ -546,12 +546,12 @@
 		704F4E351D77F42F008FB790 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				704F4E361D77F42F008FB790 /* ScreenMeetChatContainer.h */,
-				704F4E371D77F42F008FB790 /* ScreenMeetChatContainer.m */,
-				704F4E381D77F42F008FB790 /* ScreenMeetChatWidget.h */,
-				704F4E391D77F42F008FB790 /* ScreenMeetChatWidget.m */,
-				704F4E3A1D77F42F008FB790 /* ScreenMeetToast.h */,
-				704F4E3B1D77F42F008FB790 /* ScreenMeetToast.m */,
+				704F4E361D77F42F008FB790 /* SMChatContainer.h */,
+				704F4E371D77F42F008FB790 /* SMChatContainer.m */,
+				704F4E381D77F42F008FB790 /* SMChatWidget.h */,
+				704F4E391D77F42F008FB790 /* SMChatWidget.m */,
+				704F4E3A1D77F42F008FB790 /* SMToast.h */,
+				704F4E3B1D77F42F008FB790 /* SMToast.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -713,7 +713,7 @@
 				704F4E511D77F42F008FB790 /* JSQMessagesViewController.m in Sources */,
 				704F4E671D77F42F008FB790 /* JSQMessagesCellTextView.m in Sources */,
 				704F4E7A1D77F42F008FB790 /* UIImageView+UIActivityIndicatorForSDWebImage.m in Sources */,
-				704F4E7C1D77F42F008FB790 /* ScreenMeetChatWidget.m in Sources */,
+				704F4E7C1D77F42F008FB790 /* SMChatWidget.m in Sources */,
 				704F4E661D77F42F008FB790 /* README.md in Sources */,
 				704F4E5B1D77F42F008FB790 /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
 				704F4E5A1D77F42F008FB790 /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
@@ -728,11 +728,11 @@
 				704F4E431D77F42F008FB790 /* SMMessagesViewController.m in Sources */,
 				704F4E581D77F42F008FB790 /* JSQAudioMediaViewAttributes.m in Sources */,
 				704F4E501D77F42F008FB790 /* JSQMessagesKeyboardController.m in Sources */,
-				704F4E7B1D77F42F008FB790 /* ScreenMeetChatContainer.m in Sources */,
+				704F4E7B1D77F42F008FB790 /* SMChatContainer.m in Sources */,
 				704F4E461D77F42F008FB790 /* ZDSMPluginManager.m in Sources */,
 				704F4E6C1D77F42F008FB790 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				704F4E4B1D77F42F008FB790 /* NSString+JSQMessages.m in Sources */,
-				704F4E7D1D77F42F008FB790 /* ScreenMeetToast.m in Sources */,
+				704F4E7D1D77F42F008FB790 /* SMToast.m in Sources */,
 				704F4DA11D77F3AD008FB790 /* AppDelegate.m in Sources */,
 				704F4E531D77F42F008FB790 /* JSQMessagesAvatarImageFactory.m in Sources */,
 				704F4E761D77F42F008FB790 /* JSQMessagesTypingIndicatorFooterView.m in Sources */,

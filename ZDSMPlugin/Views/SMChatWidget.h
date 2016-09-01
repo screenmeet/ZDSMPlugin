@@ -1,5 +1,5 @@
 //
-//  ScreenMeetChatWidget.h
+//  SMChatWidget.h
 //  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 14/08/2016.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScreenMeetChatWidget : UIView
+@interface SMChatWidget : UIView
 
 @property (assign, nonatomic) BOOL isLive;
 @property (assign, nonatomic) BOOL willFlipContainer;

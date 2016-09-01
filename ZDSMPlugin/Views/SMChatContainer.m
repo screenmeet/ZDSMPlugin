@@ -1,5 +1,5 @@
 //
-//  ScreenMeetChatContainer.m
+//  SMChatContainer.m
 //  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 16/08/2016.
@@ -7,10 +7,10 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ScreenMeetChatContainer.h"
-#import "ScreenMeetToast.h"
+#import "SMChatContainer.h"
+#import "SMToast.h"
 
-@interface ScreenMeetChatContainer () <ScreenMeetToastDelegate>
+@interface SMChatContainer () <ScreenMeetToastDelegate>
 
 @property (assign, nonatomic) BOOL         hasFlippedBGImage;
 @property (assign, nonatomic) CGFloat     calculatedHeight;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation ScreenMeetChatContainer
+@implementation SMChatContainer
 
 - (instancetype)init
 {
@@ -71,7 +71,7 @@
 
 #pragma mark - Private Methods
 
-- (void)processMessageQueue:(ScreenMeetToast *)message
+- (void)processMessageQueue:(SMToast *)message
 {
     [self.messageQueue addObject:message];
     
@@ -101,7 +101,7 @@
         [self.messageQueue enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if (obj) {
                 // get the current object from the queue
-                ScreenMeetToast *aToast = obj;
+                SMToast *aToast = obj;
 
                 CGRect tFrame           = aToast.frame;
 
@@ -149,7 +149,7 @@
 
 - (void)addStackableToastMessage:(NSString *)message
 {
-    ScreenMeetToast *aToast               = [[ScreenMeetToast alloc] initWithMessage:message];
+    SMToast *aToast               = [[SMToast alloc] initWithMessage:message];
     aToast.delegate                       = self;
     
     // show to a view with a reference
@@ -164,7 +164,7 @@
 
 #pragma mark - ScreenMeetToast Delegate
 
-- (void)SMToastWillBeRemovedFromView:(ScreenMeetToast *)screenMeetToast
+- (void)SMToastWillBeRemovedFromView:(SMToast *)screenMeetToast
 {
     self.calculatedHeight -= screenMeetToast.frame.size.height;
     
@@ -174,7 +174,7 @@
     [self updateMessageQueueUI];
 }
 
-- (void)SMToastWasRemovedFromView:(ScreenMeetToast *)screenMeetToast
+- (void)SMToastWasRemovedFromView:(SMToast *)screenMeetToast
 {
 }
 

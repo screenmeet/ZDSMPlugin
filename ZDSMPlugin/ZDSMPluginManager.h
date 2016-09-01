@@ -16,11 +16,11 @@
 #import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
 
 // JSQMessagesViewController
-#import "ScreenMeetChatWidget.h"
+#import "SMChatWidget.h"
 
 @interface ZDSMPluginManager : NSObject
 
-@property (strong, nonatomic) ScreenMeetChatWidget     *chatWidget;
+@property (strong, nonatomic) SMChatWidget             *chatWidget;
 @property (strong, nonatomic) SMMessagesViewController *messagesVC;
 @property (strong, nonatomic) MBProgressHUD            *hud;
 
@@ -39,8 +39,8 @@
 - (void)initializeChatWidget;
 - (void)showHUDWithTitle:(NSString *)title;
 - (void)hideHUD;
-
 - (void)showDefaultError;
+
 - (void)loginWithToken:(NSString *)token;
 - (void)loginWithToken:(NSString *)token callback:(void (^)(enum CallStatus status))callback;
 - (void)logout;

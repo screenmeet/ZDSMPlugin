@@ -23,13 +23,13 @@
 
 #define kChatWidgetTag 2001
 
-static NSString *SM_API_KEY_SB       = @"";
-static NSString *SM_API_KEY_PROD     = @"";
+static NSString *SM_API_KEY_SB       = @"19ef50c67e8648f08dfc4702f992159d";
+static NSString *SM_API_KEY_PROD     = @"f6b5eda921c749968fa4cd240e7fbe1c";
 
-static NSString *ZENDESK_APP_ID      = @"";
-static NSString *ZENDESK_URL         = @"";
-static NSString *ZENDESK_CLIENT_ID   = @"";
-static NSString *ZENDESK_ACCOUNT_KEY = @"";
+static NSString *ZENDESK_APP_ID      = @"8ecc5e5b0177e72437db6ee0c0889ea6b87023348faeb750";
+static NSString *ZENDESK_URL         = @"https://screenmeetdev.zendesk.com";
+static NSString *ZENDESK_CLIENT_ID   = @"mobile_sdk_client_a224f34d64dae33a666a";
+static NSString *ZENDESK_ACCOUNT_KEY = @"476NiNORvNGOc4WSDE87u8zKNUvtYxBx";
 
 NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
@@ -81,10 +81,10 @@ static ZDSMPluginManager *manager = nil;
     return _messagesVC;
 }
 
-- (ScreenMeetChatWidget *)chatWidget
+- (SMChatWidget *)chatWidget
 {
     if (!_chatWidget) {
-        _chatWidget = [[ScreenMeetChatWidget alloc] initWithFrame:CGRectMake(10.0f, [UIScreen mainScreen].bounds.size.height - 100.0f, 40.0f, 40.0f)];
+        _chatWidget = [[SMChatWidget alloc] initWithFrame:CGRectMake(10.0f, [UIScreen mainScreen].bounds.size.height - 100.0f, 40.0f, 40.0f)];
         _chatWidget.tag = kChatWidgetTag;
     }
     return _chatWidget;

@@ -1,5 +1,5 @@
 //
-//  ScreenMeetChatContainer.h
+//  SMChatContainer.h
 //  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 16/08/2016.
@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ScreenMeetChatWidget.h"
+#import "SMChatWidget.h"
 
-@interface ScreenMeetChatContainer : UIView
+@interface SMChatContainer : UIView
 
 @property (strong, nonatomic) NSMutableArray       *messageQueue;
 
-@property (weak, nonatomic) ScreenMeetChatWidget *widget;
+@property (weak, nonatomic) SMChatWidget *widget;
 
 - (void)addStackableToastMessage:(NSString *)message;
 

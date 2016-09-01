@@ -7,21 +7,21 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import "ScreenMeetToast.h"
+#import "SMToast.h"
 
 #define kDefaultHeight      [UIScreen mainScreen].bounds.size.height
 #define kDefaultWidth       ([UIScreen mainScreen].bounds.size.width - 20.0f)
 #define kDefaultFadeTime    1.0f
 #define kDefaultDisplayTime 3.0f
 
-@interface ScreenMeetToast ()
+@interface SMToast ()
 
 @property (strong, nonatomic) UILabel     *toastLabel;
 @property (strong, nonatomic) UIImageView *iconImageView;
 
 @end
 
-@implementation ScreenMeetToast
+@implementation SMToast
 
 @synthesize delegate = __delegate;
 
