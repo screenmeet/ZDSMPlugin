@@ -11,8 +11,11 @@
 @class MBProgressHUD;
 
 #import <Foundation/Foundation.h>
+
+// ScreenMeet SDK
 #import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
 
+// JSQMessagesViewController
 #import "ScreenMeetChatWidget.h"
 
 @interface ZDSMPluginManager : NSObject

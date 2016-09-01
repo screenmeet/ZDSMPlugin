@@ -16,9 +16,6 @@
 // From Pods
 #import <MBProgressHUD/MBProgressHUD.h>
 
-// ScreenMeet SDK
-#import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
-
 // Zendesk SDK
 #import <ZendeskSDK/ZendeskSDK.h>
 #import <ZendeskSDK/ZDKSupportView.h>
@@ -26,12 +23,13 @@
 
 #define kChatWidgetTag 2001
 
-static NSString *SM_API_KEY_SB      = @"19ef50c67e8648f08dfc4702f992159d";
-static NSString *SM_API_KEY_PROD    = @"f6b5eda921c749968fa4cd240e7fbe1c";
+static NSString *SM_API_KEY_SB       = @"19ef50c67e8648f08dfc4702f992159d";
+static NSString *SM_API_KEY_PROD     = @"f6b5eda921c749968fa4cd240e7fbe1c";
 
-static NSString *ZENDESK_APP_ID     = @"8ecc5e5b0177e72437db6ee0c0889ea6b87023348faeb750";
-static NSString *ZENDESK_URL        = @"https://screenmeetdev.zendesk.com";
-static NSString *ZENDDESK_CLIENT_ID = @"mobile_sdk_client_a224f34d64dae33a666a";
+static NSString *ZENDESK_APP_ID      = @"8ecc5e5b0177e72437db6ee0c0889ea6b87023348faeb750";
+static NSString *ZENDESK_URL         = @"https://screenmeetdev.zendesk.com";
+static NSString *ZENDESK_CLIENT_ID   = @"mobile_sdk_client_a224f34d64dae33a666a";
+static NSString *ZENDESK_ACCOUNT_KEY = @"476NiNORvNGOc4WSDE87u8zKNUvtYxBx";
 
 NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
@@ -65,10 +63,12 @@ static ZDSMPluginManager *manager = nil;
 - (id)init
 {
     self = [super init];
+    
     if (self) {
         [self initiateScreenMeetinProd:NO];
-        
+        [self initialzeZendesk];
     }
+    
     return self;
 }
 
@@ -119,14 +119,22 @@ static ZDSMPluginManager *manager = nil;
 
 - (void)initiateScreenMeetinProd:(BOOL)inProd
 {
+    
     self.isProduction = inProd;
+    
+    //
+    // Initialize ScreenMeet SDK
+    //
     
     if (inProd) {
         [ScreenMeet initSharedInstance:SM_API_KEY_PROD environment:EnvironmentTypePRODUCTION];
     } else {
         [ScreenMeet initSharedInstance:SM_API_KEY_SB environment:EnvironmentTypeSANDBOX];
     }
-    
+}
+
+- (void)initialzeZendesk
+{
     //
     // Enable logging for debug builds
     //
@@ -143,14 +151,13 @@ static ZDSMPluginManager *manager = nil;
     
     [[ZDKConfig instance] initializeWithAppId:ZENDESK_APP_ID
                                    zendeskUrl:ZENDESK_URL
-                                     clientId:ZENDDESK_CLIENT_ID];
+                                     clientId:ZENDESK_CLIENT_ID];
     
     //
     // Initialise the chat SDK
     //
     [ZDCChat configure:^(ZDCConfig *defaults) {
-        
-        defaults.accountKey                         = @"476NiNORvNGOc4WSDE87u8zKNUvtYxBx";
+        defaults.accountKey                         = ZENDESK_ACCOUNT_KEY;
         defaults.preChatDataRequirements.department = ZDCPreChatDataOptional;
         defaults.preChatDataRequirements.message    = ZDCPreChatDataOptional;
     }];
@@ -158,6 +165,7 @@ static ZDSMPluginManager *manager = nil;
     //
     //  The rest of the Mobile SDK code can be found in ZenHelpViewController.m
     //
+
 }
 
 - (void)handleDoubleTap
@@ -355,6 +363,7 @@ static ZDSMPluginManager *manager = nil;
     if (![self isChatWidgetInitialized]) {
         [[[UIApplication sharedApplication] delegate].window addSubview:self.chatWidget];
     }
+    
     [[[UIApplication sharedApplication] delegate].window bringSubviewToFront:self.chatWidget];
 }
 
