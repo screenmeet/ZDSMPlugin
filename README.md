@@ -26,20 +26,33 @@ ZDSMPlugin is note yet available through [CocoaPods](http://cocoapods.org).
 
 To install it, copy the "ZDSMPlugin" folder to your project and update the framewrok search paths in your build settings if needed.
 
-Include the "ScreenMeetSDK.framework" inside the target's Embedded Binaries.
+Include the `ScreenMeetSDK.framework` inside the target's Embedded Binaries.
 
 Enable the embedded swift code option.
 
-Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes
+`Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
 
 ## Usage
 
-Initialize the `ZDSMPluginManager`.
+Initialize the `[ZDSMPluginManager sharedManager]`.
+
+To show show the chat UI:
+
+Either present or show the view controller
+`
+[[ZDSMPluginManager sharedManager] messagesVC]
+`
+
+The `ZDSMPluginManager` contains the object of the SMMessagesViewController
+
+`@property (strong, nonatomic) SMMessagesViewController *messagesVC;`
 
 ## Authors
 
 Eugene Abovsky: eugene@projector.is
+
 Adrian Cayaco: acayaco@stratpoint.com
+
 Mylene Bayan: mbayan@stratpoint.com
 
 ## License
