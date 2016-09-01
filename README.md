@@ -32,20 +32,28 @@ Enable the embedded swift code option.
 
 `Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
 
+## Setup
+
+Fill in the keys in the `ZDSMPluginManager.m`
+
+```
+SM_API_KEY_SB
+SM_API_KEY_PROD
+
+ZENDESK_APP_ID
+ZENDESK_URL
+ZENDESK_CLIENT_ID
+ZENDESK_ACCOUNT_KEY
+```
+
 ## Usage
 
 Initialize the `[ZDSMPluginManager sharedManager]`.
 
 To show show the chat UI:
 
-Either present or show the view controller
-`
-[[ZDSMPluginManager sharedManager] messagesVC]
-`
+Either present or show the view controller `[[ZDSMPluginManager sharedManager] messagesVC]`
 
-The `ZDSMPluginManager` contains the object of the SMMessagesViewController
-
-`@property (strong, nonatomic) SMMessagesViewController *messagesVC;`
 
 ## Authors
 
