@@ -8,7 +8,7 @@
 
 #import "SMAccountViewController.h"
 
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 #import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
 
 @interface SMAccountViewController () <UITextFieldDelegate, UIAlertViewDelegate>
@@ -94,7 +94,7 @@
     // Do any additional setup after loading the view from its nib.
     
     self.navigationItem.hidesBackButton       = YES;
-    self.navigationItem.leftBarButtonItem     = [ScreenMeetManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed)];
+    self.navigationItem.leftBarButtonItem     = [ZDSMPluginManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed)];
     
     self.nameTextField.text = [[ScreenMeet sharedInstance] getUserName];
     self.emailTextField.text = [[ScreenMeet sharedInstance] getUserEmail];
@@ -175,7 +175,7 @@
                                                              cancelButtonTitle:@"Ok"
                                                              otherButtonTitles:nil] show];
                                        } else {
-                                           [[ScreenMeetManager sharedManager] showDefaultError];
+                                           [[ZDSMPluginManager sharedManager] showDefaultError];
                                        }
                                    }];
                                }];
@@ -213,7 +213,7 @@
                                  cancelButtonTitle:@"Ok"
                                  otherButtonTitles:nil] show];
             } else {
-                [[ScreenMeetManager sharedManager] showDefaultError];
+                [[ZDSMPluginManager sharedManager] showDefaultError];
             }
         }];
         
@@ -228,7 +228,7 @@
                                   cancelButtonTitle:@"Ok"
                                   otherButtonTitles:nil] show];
             } else {
-                [[ScreenMeetManager sharedManager] showDefaultError];
+                [[ZDSMPluginManager sharedManager] showDefaultError];
             }
             
         }];

@@ -23,7 +23,7 @@
 		704F4E431D77F42F008FB790 /* SMMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DC11D77F42F008FB790 /* SMMessagesViewController.m */; };
 		704F4E441D77F42F008FB790 /* SMSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DC31D77F42F008FB790 /* SMSettingsViewController.m */; };
 		704F4E451D77F42F008FB790 /* SMSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704F4DC41D77F42F008FB790 /* SMSettingsViewController.xib */; };
-		704F4E461D77F42F008FB790 /* ScreenMeetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DC61D77F42F008FB790 /* ScreenMeetManager.m */; };
+		704F4E461D77F42F008FB790 /* ZDSMPluginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DC61D77F42F008FB790 /* ZDSMPluginManager.m */; };
 		704F4E471D77F42F008FB790 /* ScreenMeetSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */; };
 		704F4E481D77F42F008FB790 /* JSQMessagesAssets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 704F4DCB1D77F42F008FB790 /* JSQMessagesAssets.bundle */; };
 		704F4E491D77F42F008FB790 /* JSQSystemSoundPlayer+JSQMessages.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DCE1D77F42F008FB790 /* JSQSystemSoundPlayer+JSQMessages.m */; };
@@ -128,8 +128,8 @@
 		704F4DC21D77F42F008FB790 /* SMSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSettingsViewController.h; sourceTree = "<group>"; };
 		704F4DC31D77F42F008FB790 /* SMSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSettingsViewController.m; sourceTree = "<group>"; };
 		704F4DC41D77F42F008FB790 /* SMSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMSettingsViewController.xib; sourceTree = "<group>"; };
-		704F4DC51D77F42F008FB790 /* ScreenMeetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenMeetManager.h; sourceTree = "<group>"; };
-		704F4DC61D77F42F008FB790 /* ScreenMeetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenMeetManager.m; sourceTree = "<group>"; };
+		704F4DC51D77F42F008FB790 /* ZDSMPluginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZDSMPluginManager.h; sourceTree = "<group>"; };
+		704F4DC61D77F42F008FB790 /* ZDSMPluginManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZDSMPluginManager.m; sourceTree = "<group>"; };
 		704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ScreenMeetSDK.framework; sourceTree = "<group>"; };
 		704F4DCB1D77F42F008FB790 /* JSQMessagesAssets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JSQMessagesAssets.bundle; sourceTree = "<group>"; };
 		704F4DCD1D77F42F008FB790 /* JSQSystemSoundPlayer+JSQMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JSQSystemSoundPlayer+JSQMessages.h"; sourceTree = "<group>"; };
@@ -316,8 +316,8 @@
 				704F4DB41D77F42F008FB790 /* Assets */,
 				704F4DB91D77F42F008FB790 /* Categories */,
 				704F4DBC1D77F42F008FB790 /* Controllers */,
-				704F4DC51D77F42F008FB790 /* ScreenMeetManager.h */,
-				704F4DC61D77F42F008FB790 /* ScreenMeetManager.m */,
+				704F4DC51D77F42F008FB790 /* ZDSMPluginManager.h */,
+				704F4DC61D77F42F008FB790 /* ZDSMPluginManager.m */,
 				704F4DC71D77F42F008FB790 /* ScreenMeetSDK.framework */,
 				704F4DC81D77F42F008FB790 /* Vendors */,
 				704F4E351D77F42F008FB790 /* Views */,
@@ -729,7 +729,7 @@
 				704F4E581D77F42F008FB790 /* JSQAudioMediaViewAttributes.m in Sources */,
 				704F4E501D77F42F008FB790 /* JSQMessagesKeyboardController.m in Sources */,
 				704F4E7B1D77F42F008FB790 /* ScreenMeetChatContainer.m in Sources */,
-				704F4E461D77F42F008FB790 /* ScreenMeetManager.m in Sources */,
+				704F4E461D77F42F008FB790 /* ZDSMPluginManager.m in Sources */,
 				704F4E6C1D77F42F008FB790 /* JSQMessagesCollectionViewCellOutgoing.m in Sources */,
 				704F4E4B1D77F42F008FB790 /* NSString+JSQMessages.m in Sources */,
 				704F4E7D1D77F42F008FB790 /* ScreenMeetToast.m in Sources */,

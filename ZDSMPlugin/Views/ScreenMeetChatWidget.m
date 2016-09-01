@@ -10,7 +10,7 @@
 #import "ScreenMeetChatWidget.h"
 #import "ScreenMeetToast.h"
 #import "ScreenMeetChatContainer.h"
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 
 #define kDefaultFrame           CGRectMake(0.0f, 0.0f, 40.0f, 40.0f)
 #define kDefaultFlipThreshold   0.75
@@ -169,7 +169,7 @@
 
 - (void)updateUI
 {
-    if ([[ScreenMeetManager sharedManager] isStreaming]) {
+    if ([[ZDSMPluginManager sharedManager] isStreaming]) {
         [self showStreamingUI];
     } else if (self.isLive) {
         [self showLiveUI];
@@ -265,7 +265,7 @@
 
 - (void)activateChat
 {
-    [ScreenMeetManager presentViewControllerFromWindowRootViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ScreenMeetManager sharedManager] messagesVC]] animated:YES completion:^{
+    [ZDSMPluginManager presentViewControllerFromWindowRootViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ZDSMPluginManager sharedManager] messagesVC]] animated:YES completion:^{
         [self hideWidget];
     }];
 }

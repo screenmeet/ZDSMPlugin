@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 
 @interface AppDelegate ()
 
@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [ScreenMeetManager sharedManager];
+    [ZDSMPluginManager sharedManager];
     
     return YES;
 }

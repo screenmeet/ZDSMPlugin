@@ -13,7 +13,7 @@
 
 #import "JSQMessages.h"
 
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 
 #define AVATAR_SIZE 28.0
 
@@ -72,11 +72,11 @@
     [[ZDCChat instance].session.dataSource removeObserverForAgentEvents:self];
     [[ZDCChat instance].session.dataSource addObserver:self forAgentEvents:@selector(agentEvent:)];
     
-    [ScreenMeetManager sharedManager].chatWidget.isLive = YES;
+    [ZDSMPluginManager sharedManager].chatWidget.isLive = YES;
     
     [self verifyEvents];
     
-    self.navigationItem.leftBarButtonItem = [ScreenMeetManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed:)];
+    self.navigationItem.leftBarButtonItem = [ZDSMPluginManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed:)];
     
     [self processRightBarButtonItems];
 }
@@ -87,6 +87,7 @@
 }
 
 #pragma mark - Override
+
 - (void)didPressSendButton:(UIButton *)button withMessageText:(NSString *)text senderId:(NSString *)senderId senderDisplayName:(NSString *)senderDisplayName date:(NSDate *)date {
     NSLog(@"Session status: %lul", (unsigned long)[[ZDCChat instance].session status]);
     
@@ -220,8 +221,8 @@
     if (chatEvent.type == ZDCChatEventTypeMemberLeave) {
         if ([[ZDCChat instance].session status] != ZDCChatSessionStatusInactive) {
             
-            [ScreenMeetManager sharedManager].chatWidget.isLive = NO;
-            [[ScreenMeetManager sharedManager].chatWidget endChat];
+            [ZDSMPluginManager sharedManager].chatWidget.isLive = NO;
+            [[ZDSMPluginManager sharedManager].chatWidget endChat];
             
             UIAlertController *endChatAlert = [UIAlertController alertControllerWithTitle:@"Oops!" message:[NSString stringWithFormat:@"%@ ended the chat.", chatEvent.displayName] preferredStyle:UIAlertControllerStyleAlert];
             [endChatAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -231,7 +232,7 @@
             if (self.isViewLoaded && self.view.window) {
                 [self presentViewController:endChatAlert animated:YES completion:nil];
             } else {
-                [ScreenMeetManager presentViewControllerFromWindowRootViewController:endChatAlert animated:YES completion:^{
+                [ZDSMPluginManager presentViewControllerFromWindowRootViewController:endChatAlert animated:YES completion:^{
                     
                 }];
             }
@@ -281,7 +282,7 @@
         if (self.isViewLoaded && self.view.window) {
             // do nothing
         } else {
-            [[ScreenMeetManager sharedManager].chatWidget addStackableToastMessage:[NSString stringWithFormat:@"%@: %@", chatEvent.displayName, message.text]];
+            [[ZDSMPluginManager sharedManager].chatWidget addStackableToastMessage:[NSString stringWithFormat:@"%@: %@", chatEvent.displayName, message.text]];
         }
     }
 }
@@ -289,8 +290,8 @@
 - (void)timeoutEvent:(NSNotification *)notification {
     /* When a chat times out, you won't be able to send messages. The chat returns to the uninitialized state. You can start a new chat or inform the user the chat has ended but you cannot reconnect to the timed out chat. */
     
-    [ScreenMeetManager sharedManager].chatWidget.isLive = NO;
-    [[ScreenMeetManager sharedManager].chatWidget endChat];
+    [ZDSMPluginManager sharedManager].chatWidget.isLive = NO;
+    [[ZDSMPluginManager sharedManager].chatWidget endChat];
     
     UIAlertController *timeoutAlert = [UIAlertController alertControllerWithTitle:@"Oops!" message:@"Your session has timed out. Ending chat." preferredStyle:UIAlertControllerStyleAlert];
     [timeoutAlert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -300,7 +301,7 @@
     if (self.isViewLoaded && self.view.window) {
         [self presentViewController:timeoutAlert animated:YES completion:nil];
     } else {
-        [ScreenMeetManager presentViewControllerFromWindowRootViewController:timeoutAlert animated:YES completion:^{
+        [ZDSMPluginManager presentViewControllerFromWindowRootViewController:timeoutAlert animated:YES completion:^{
             
         }];
     }
@@ -350,16 +351,16 @@
                                       
                                       NSString *token = [[event.message componentsSeparatedByString:@"|"] lastObject];
                                       
-                                      [[ScreenMeetManager sharedManager] showHUDWithTitle:@"authenticating..."];
+                                      [[ZDSMPluginManager sharedManager] showHUDWithTitle:@"authenticating..."];
                                       
                                       // Authenticate with token
-                                      [[ScreenMeetManager sharedManager] loginWithToken:token callback:^(enum CallStatus status) {
+                                      [[ZDSMPluginManager sharedManager] loginWithToken:token callback:^(enum CallStatus status) {
                                           if (status == CallStatusSUCCESS) {
                                               [self.inputToolbar.contentView.textView resignFirstResponder];
                                               NSLog(@"login with token was successful...");
                                               NSLog(@"will now start screen sharing...");
                                               
-                                              [[ScreenMeetManager sharedManager] showHUDWithTitle:@"starting stream..."];
+                                              [[ZDSMPluginManager sharedManager] showHUDWithTitle:@"starting stream..."];
                                               
                                               
                                               [[ScreenMeet sharedInstance] startStream:^(enum CallStatus status) {
@@ -367,8 +368,8 @@
                                                       NSLog(@"screen sharing now started...");
                                                       // trigger UI and states for screen sharing
                                                       
-                                                      [[ScreenMeetManager sharedManager] hideHUD];
-                                                      [[ScreenMeetManager sharedManager].chatWidget showStreamingUI];
+                                                      [[ZDSMPluginManager sharedManager] hideHUD];
+                                                      [[ZDSMPluginManager sharedManager].chatWidget showStreamingUI];
                                                       
                                                       [self sendMessage:@"Screen shared."];
                                                       
@@ -391,7 +392,7 @@
     if (self.isViewLoaded && self.view.window) {
         [self presentViewController:requestAlert animated:YES completion:nil];
     } else {
-        [ScreenMeetManager presentViewControllerFromWindowRootViewController:requestAlert animated:YES completion:^{
+        [ZDSMPluginManager presentViewControllerFromWindowRootViewController:requestAlert animated:YES completion:^{
             
         }];
     }
@@ -400,14 +401,15 @@
 - (void)handleScreenShareError:(CallStatus)status
 {
     // can add different error handling here
-    [[ScreenMeetManager sharedManager] showDefaultError];
-    [[ScreenMeetManager sharedManager] hideHUD];
+    [[ZDSMPluginManager sharedManager] showDefaultError];
+    [[ZDSMPluginManager sharedManager] hideHUD];
     
     // send screen share error message
     [self sendMessage:@"There was a problem with sharing my screen."];
 }
 
 - (void)sendMessage:(NSString *)text {
+    
     [[ZDCChat instance].session sendChatMessage:text];
     
     [self finishSendingMessage];
@@ -420,8 +422,8 @@
     [self.inputToolbar.contentView.textView resignFirstResponder];
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [[ScreenMeetManager sharedManager] initializeChatWidget];
-        [[ScreenMeetManager sharedManager].chatWidget showWidget];
+        [[ZDSMPluginManager sharedManager] initializeChatWidget];
+        [[ZDSMPluginManager sharedManager].chatWidget showWidget];
     }];
 }
 
@@ -474,8 +476,8 @@
 
 - (void)stopStreamButtonWasPressed:(UIBarButtonItem *)barButtonItem
 {
-    [[ScreenMeetManager sharedManager] stopStream];
-    [[ScreenMeetManager sharedManager].chatWidget updateUI];
+    [[ZDSMPluginManager sharedManager] stopStream];
+    [[ZDSMPluginManager sharedManager].chatWidget updateUI];
     
     [self sendMessage:@"Screen sharing stoppped."];
     
@@ -487,7 +489,7 @@
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.rightBarButtonItems = nil;
     
-    if ([[ScreenMeetManager sharedManager] isStreaming]) {
+    if ([[ZDSMPluginManager sharedManager] isStreaming]) {
         UIBarButtonItem *stopStream = [[UIBarButtonItem alloc] initWithTitle:@"Stop Sharing Screen" style:UIBarButtonItemStyleDone target:self action:@selector(stopStreamButtonWasPressed:)];
         UIBarButtonItem *endChat = [[UIBarButtonItem alloc] initWithTitle:@"End Chat" style:UIBarButtonItemStyleDone target:self action:@selector(endChatButtonWasPressed:)];
         
@@ -516,13 +518,13 @@
     void (^EndChatBlock) (void) = ^(void) {
         [[ZDCChat instance].session endChat];
         
-        if ([ScreenMeetManager sharedManager].isStreaming) {
-            [[ScreenMeetManager sharedManager] stopStream];
+        if ([ZDSMPluginManager sharedManager].isStreaming) {
+            [[ZDSMPluginManager sharedManager] stopStream];
         }
         
-        if ([ScreenMeetManager sharedManager].chatWidget.isActive) {
-            [ScreenMeetManager sharedManager].chatWidget.isLive = NO;
-            [[ScreenMeetManager sharedManager].chatWidget endChat];
+        if ([ZDSMPluginManager sharedManager].chatWidget.isActive) {
+            [ZDSMPluginManager sharedManager].chatWidget.isLive = NO;
+            [[ZDSMPluginManager sharedManager].chatWidget endChat];
         }
     
         [self.eventIds removeAllObjects];

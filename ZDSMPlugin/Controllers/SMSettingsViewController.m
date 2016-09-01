@@ -8,7 +8,7 @@
 
 #import "SMSettingsViewController.h"
 
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 #import <ScreenMeetSDK/ScreenMeetSDK-Swift.h>
 
 @interface SMSettingsViewController () <UITextFieldDelegate>
@@ -111,7 +111,7 @@
     }
 
     self.navigationItem.hidesBackButton       = YES;
-    self.navigationItem.leftBarButtonItem     = [ScreenMeetManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed)];
+    self.navigationItem.leftBarButtonItem     = [ZDSMPluginManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed)];
 
     self.roomPassword                         = @"";
     self.roomNameLabel.text                   = [[ScreenMeet sharedInstance] getRoomName];
@@ -202,7 +202,7 @@
                                                                    cancelButtonTitle:@"Ok"
                                                                    otherButtonTitles:nil] show];
                                              } else {
-                                                 [[ScreenMeetManager sharedManager] showDefaultError];
+                                                 [[ZDSMPluginManager sharedManager] showDefaultError];
                                              }
                                          });
                                      }];
@@ -235,7 +235,7 @@
                                       cancelButtonTitle:@"Ok"
                                       otherButtonTitles:nil] show];
                 } else {
-                    [[ScreenMeetManager sharedManager] showDefaultError];
+                    [[ZDSMPluginManager sharedManager] showDefaultError];
                 }
             });
         }];
@@ -292,7 +292,7 @@
                                                                        cancelButtonTitle:@"Ok"
                                                                        otherButtonTitles:nil] show];
                                                  } else {
-                                                     [[ScreenMeetManager sharedManager] showDefaultError];
+                                                     [[ZDSMPluginManager sharedManager] showDefaultError];
                                                  }
                                              });
                                          }];
@@ -356,7 +356,7 @@
                                                                    cancelButtonTitle:@"Ok"
                                                                    otherButtonTitles:nil] show];
                                              } else {
-                                                 [[ScreenMeetManager sharedManager] showDefaultError];
+                                                 [[ZDSMPluginManager sharedManager] showDefaultError];
                                              }
                                          });
                                      }];
@@ -408,7 +408,7 @@
                                                                    cancelButtonTitle:@"Ok"
                                                                    otherButtonTitles:nil] show];
                                              } else {
-                                                 [[ScreenMeetManager sharedManager] showDefaultError];
+                                                 [[ZDSMPluginManager sharedManager] showDefaultError];
                                              }
                                          });
                                          
@@ -466,7 +466,7 @@
                                                                cancelButtonTitle:@"Ok"
                                                                otherButtonTitles:nil] show];
                                          } else {
-                                             [[ScreenMeetManager sharedManager] showDefaultError];
+                                             [[ZDSMPluginManager sharedManager] showDefaultError];
                                          }
                                      }];
                                  }];
@@ -481,7 +481,7 @@
 - (void)logoutButtonWasPressed
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        [[ScreenMeetManager sharedManager] logout];
+        [[ZDSMPluginManager sharedManager] logout];
     }];
 }
 
@@ -498,7 +498,7 @@
                                   cancelButtonTitle:@"Ok"
                                   otherButtonTitles:nil] show];
             } else {
-                [[ScreenMeetManager sharedManager] showDefaultError];
+                [[ZDSMPluginManager sharedManager] showDefaultError];
             }
         });
     }];

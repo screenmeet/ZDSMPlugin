@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-#import "ScreenMeetManager.h"
+#import "ZDSMPluginManager.h"
 
 @interface ViewController ()
 
@@ -30,7 +30,7 @@
 
 - (IBAction)startChatButtonWasPressed:(id)sender
 {
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ScreenMeetManager sharedManager] messagesVC]] animated:YES completion:^{
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ZDSMPluginManager sharedManager] messagesVC]] animated:YES completion:^{
         
     }];
 }

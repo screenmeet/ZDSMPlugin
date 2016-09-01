@@ -1,12 +1,13 @@
 //
-//  ScreenMeetManager.m
-//  GServices
+//  ZDSMPluginManager.m
+//  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 13/07/2016.
-//  Copyright © 2016 Stratpoint. All rights reserved.
+//  Copyright © 2016 ScreenMeet. All rights reserved.
 //
 
-#import "ScreenMeetManager.h"
+
+#import "ZDSMPluginManager.h"
 
 #import "SMSettingsViewController.h"
 #import "SMAccountViewController.h"
@@ -34,7 +35,7 @@ static NSString *ZENDDESK_CLIENT_ID = @"mobile_sdk_client_a224f34d64dae33a666a";
 
 NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
-@interface ScreenMeetManager () <UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface ZDSMPluginManager () <UIGestureRecognizerDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) NSString      *token;
 @property (strong, nonatomic) NSString      *username;
@@ -47,15 +48,15 @@ NSString * const APNS_ID_KEY  = @"APNS_ID_KEY";
 
 @end
 
-@implementation ScreenMeetManager
+@implementation ZDSMPluginManager
 
-static ScreenMeetManager *manager = nil;
+static ZDSMPluginManager *manager = nil;
 
-+ (ScreenMeetManager *)sharedManager
++ (ZDSMPluginManager *)sharedManager
 {
     @synchronized(self) {
         if (!manager) {
-            manager = (ScreenMeetManager *)[[self alloc] init];
+            manager = (ZDSMPluginManager *)[[self alloc] init];
         }
     }
     return manager;
@@ -270,7 +271,7 @@ static ScreenMeetManager *manager = nil;
             
             UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[SMSettingsViewController alloc] init]];
             
-            [ScreenMeetManager presentViewControllerFromWindowRootViewController:navVC animated:YES completion:^{
+            [ZDSMPluginManager presentViewControllerFromWindowRootViewController:navVC animated:YES completion:^{
                 
             }];
         }];

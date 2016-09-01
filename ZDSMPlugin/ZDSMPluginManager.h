@@ -1,9 +1,9 @@
 //
-//  ScreenMeetManager.h
-//  GServices
+//  ZDSMPluginManager.h
+//  ZDSMPlugin
 //
 //  Created by Adrian Cayaco on 13/07/2016.
-//  Copyright © 2016 Stratpoint. All rights reserved.
+//  Copyright © 2016 ScreenMeet. All rights reserved.
 //
 
 @class UIBarButtonItem;
@@ -15,7 +15,7 @@
 
 #import "ScreenMeetChatWidget.h"
 
-@interface ScreenMeetManager : NSObject
+@interface ZDSMPluginManager : NSObject
 
 @property (strong, nonatomic) ScreenMeetChatWidget     *chatWidget;
 @property (strong, nonatomic) SMMessagesViewController *messagesVC;
@@ -23,7 +23,7 @@
 
 // Class Methods
 
-+ (ScreenMeetManager *)sharedManager;
++ (ZDSMPluginManager *)sharedManager;
 
 + (UIBarButtonItem *)createCloseButtonItemWithTarget:(id)target forSelector:(SEL)action;
 
