@@ -25,28 +25,27 @@ pod 'ZDCChat', '1.2.1.1'
 ###ZDSMPlugin is not yet available through [CocoaPods](http://cocoapods.org). 
 
 1. To install it, copy the `ZDSMPlugin` folder to your project and update the framewrok search paths in your build settings if needed.
+    > Be careful with the file referencing and using the "Add files to project" option.
 
-    * Be careful with the file referencing and using the "Add files to project" option.
-        
-![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss01.png)
+    ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss01.png)
 
-    * Make sure the "copy to project if needed" is unchecked if you have the `ZDSMPlugin` folder inside the project folder.
+    > Make sure the "copy to project if needed" is unchecked if you have the `ZDSMPlugin` folder inside the project folder.
         
-![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss02.png)
+   ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss02.png)
 
 2. Include the `ScreenMeetSDK.framework` inside the target's Embedded Binaries.
         
-![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss04.png)
+    ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss04.png)
 
 3. Enable the embedded swift code option.
         
-    `Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
+    > `Project.xcproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
         
     ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss03.png)
 
 4. Run `pod init` if you don't have a Podfile yet and add the pod dependencies.
 
-    * Close the .xcproject and open the .xcworkspace if you created a new project and just initiated a new pod.
+    > Close the .xcproject and open the .xcworkspace if you created a new project and just initiated a new pod.
 
 5. Run `pod install` to add the dependencies.
 
@@ -76,7 +75,7 @@ To show the chat UI:
 
     ```
     [[ZDSMPluginManager sharedManager] showChatWindow:^{
-        // present from the Window's RootViewController'
+        // present from the Window's RootViewController
     }];
     ```
 
@@ -87,7 +86,6 @@ To show the chat UI:
         // present or show from the current view controller
     }];
     ```
-
 
 ## Authors
 
