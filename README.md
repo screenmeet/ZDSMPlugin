@@ -66,7 +66,7 @@ ZENDESK_ACCOUNT_KEY
 
 Initialize the `[ZDSMPluginManager sharedManager]`.
 
-To show show the chat UI:
+To show the chat UI:
 
 1. Either present or show the view controller `[[ZDSMPluginManager sharedManager] messagesVC]`
 
