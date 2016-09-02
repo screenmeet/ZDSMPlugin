@@ -8,6 +8,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## Prerequisites
+
+[Set up your ScreenMeet Developer Sandbox Account](SANDBOX.md)
+
 ## Requirements
 
 Please add the dependencies in your pod file:
