@@ -65,7 +65,12 @@ ZENDESK_ACCOUNT_KEY
 
 ## Usage
 
-Initialize the `[ZDSMPluginManager sharedManager]`.
+Import the library by adding it to your AppDelegate.m file and any other source files where you want to use the plugin:
+
+`#import "ZDSMPluginManager.h"`
+
+
+Initialize the `[ZDSMPluginManager sharedManager]` in your AppDelegate
 
 To show the chat UI:
 
