@@ -35,12 +35,22 @@
 // Public Methods
 
 - (BOOL)isChatWidgetInitialized;
+- (BOOL)chatWindowIsVisible;
 
 - (void)initializeChatWidget;
+
+// Presents the SMMessagesViewController from the UIApplicationDelegate Window's RootViewController
+- (void)showChatWindow:(void (^)(void))completion;
+
+// Presents or Shows the SMMessagesViewController from the viewController
+- (void)showChatWindowFromViewController:(id)viewController completion:(void (^)(void))completion;
+
 - (void)showHUDWithTitle:(NSString *)title;
 - (void)hideHUD;
+
 - (void)showDefaultError;
 
+// ScreenMeet SDK Methods
 - (void)loginWithToken:(NSString *)token;
 - (void)loginWithToken:(NSString *)token callback:(void (^)(enum CallStatus status))callback;
 - (void)logout;

@@ -30,7 +30,11 @@
 
 - (IBAction)startChatButtonWasPressed:(id)sender
 {
-    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:(UIViewController *)[[ZDSMPluginManager sharedManager] messagesVC]] animated:YES completion:^{
+    [[ZDSMPluginManager sharedManager] showChatWindow:^{
+        
+    }];
+    
+    [[ZDSMPluginManager sharedManager] showChatWindowFromViewController:self completion:^{
         
     }];
 }

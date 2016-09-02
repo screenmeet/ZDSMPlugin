@@ -79,6 +79,10 @@
     self.navigationItem.leftBarButtonItem = [ZDSMPluginManager createCloseButtonItemWithTarget:self forSelector:@selector(closeButtonWasPressed:)];
     
     [self processRightBarButtonItems];
+    
+    if ([ZDSMPluginManager sharedManager].chatWidget.isActive) {
+        [[ZDSMPluginManager sharedManager].chatWidget hideWidget];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

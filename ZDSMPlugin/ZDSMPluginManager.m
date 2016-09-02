@@ -358,6 +358,16 @@ static ZDSMPluginManager *manager = nil;
     }
 }
 
+- (BOOL)chatWindowIsVisible
+{
+    if (self.messagesVC.isViewLoaded && self.messagesVC.view.window) {
+        // the chat window is visible
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 - (void)initializeChatWidget
 {
     if (![self isChatWidgetInitialized]) {
@@ -365,6 +375,27 @@ static ZDSMPluginManager *manager = nil;
     }
     
     [[[UIApplication sharedApplication] delegate].window bringSubviewToFront:self.chatWidget];
+}
+
+- (void)showChatWindow:(void (^)(void))completion
+{
+    if (![self chatWindowIsVisible]) {
+        [ZDSMPluginManager presentViewControllerFromWindowRootViewController:[[UINavigationController alloc] initWithRootViewController:self.messagesVC] animated:YES completion:completion];
+    }
+}
+
+- (void)showChatWindowFromViewController:(id)viewController completion:(void (^)(void))completion
+{
+    if (![self chatWindowIsVisible]) {
+        if ([viewController isKindOfClass:[UINavigationController class]]) {
+            self.messagesVC.navigationItem.hidesBackButton = YES;
+            [viewController pushViewController:self.messagesVC animated:YES];
+        } else {
+            UIViewController *aViewController = viewController;
+            
+            [aViewController presentViewController:[[UINavigationController alloc] initWithRootViewController:self.messagesVC] animated:YES completion:completion];
+        }
+    }
 }
 
 - (void)showHUDWithTitle:(NSString *)title
