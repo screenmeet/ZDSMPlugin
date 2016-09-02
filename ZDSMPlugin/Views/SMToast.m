@@ -136,7 +136,7 @@
 
     [self addSubview:self.backgroundView];
 
-    self.toastIcon                        = [UIImage imageNamed:@"user_icon"];
+    self.toastIcon                        = [UIImage imageNamed:@"icoUser"];
     
     CGFloat iconWidth                     = 15.0f;
 

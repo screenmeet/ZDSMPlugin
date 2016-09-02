@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70212A761D79599D00CABBC8 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 70212A751D79599D00CABBC8 /* README.md */; };
 		704F4D9E1D77F3AD008FB790 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4D9D1D77F3AD008FB790 /* main.m */; };
 		704F4DA11D77F3AD008FB790 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DA01D77F3AD008FB790 /* AppDelegate.m */; };
 		704F4DA41D77F3AD008FB790 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704F4DA31D77F3AD008FB790 /* ViewController.m */; };
@@ -104,6 +105,7 @@
 
 /* Begin PBXFileReference section */
 		578EA74860127F446A1DC617 /* Pods-ZDSMPlugin_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZDSMPlugin_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZDSMPlugin_Example/Pods-ZDSMPlugin_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		70212A751D79599D00CABBC8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		704F4D991D77F3AD008FB790 /* ZDSMPlugin_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDSMPlugin_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704F4D9D1D77F3AD008FB790 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		704F4D9F1D77F3AD008FB790 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		704F4D901D77F3AD008FB790 = {
 			isa = PBXGroup;
 			children = (
+				70212A751D79599D00CABBC8 /* README.md */,
 				704F4D9B1D77F3AD008FB790 /* ZDSMPlugin_Example */,
 				704F4D9A1D77F3AD008FB790 /* Products */,
 				24A61B7A3F3AF52B414D1849 /* Pods */,
@@ -747,6 +750,7 @@
 				704F4E401D77F42F008FB790 /* SMCircularImageView.m in Sources */,
 				704F4E741D77F42F008FB790 /* JSQMessagesToolbarContentView.m in Sources */,
 				704F4E4C1D77F42F008FB790 /* UIColor+JSQMessages.m in Sources */,
+				70212A761D79599D00CABBC8 /* README.md in Sources */,
 				704F4E561D77F42F008FB790 /* JSQMessagesTimestampFormatter.m in Sources */,
 				704F4E591D77F42F008FB790 /* JSQMessagesBubblesSizeCalculator.m in Sources */,
 				704F4E551D77F42F008FB790 /* JSQMessagesMediaViewBubbleImageMasker.m in Sources */,

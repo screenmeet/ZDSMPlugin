@@ -61,19 +61,19 @@ Initialize the `[ZDSMPluginManager sharedManager]`.
 
 To show show the chat UI:
 
-Either present or show the view controller `[[ZDSMPluginManager sharedManager] messagesVC]`
+1. Either present or show the view controller `[[ZDSMPluginManager sharedManager] messagesVC]`
 
-or use the method to show the chat window from the Window's RootViewController
+2. Use the method to show the chat window from the Window's RootViewController
 
-`[[ZDSMPluginManager sharedManager] showChatWindow:^{
-    // present from the Window's RootViewController'
-}];`
+    `[[ZDSMPluginManager sharedManager] showChatWindow:^{
+        // present from the Window's RootViewController'
+    }];`
 
-or present/show it from a view Controller
+3. Present/show it from a view Controller
 
-`[[ZDSMPluginManager sharedManager] showChatWindowFromViewController:self completion:^{
-    // present or show from the current view controller
-}];`
+    `[[ZDSMPluginManager sharedManager] showChatWindowFromViewController:self completion:^{
+        // present or show from the current view controller
+    }];`
 
 
 ## Authors
