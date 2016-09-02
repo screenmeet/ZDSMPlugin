@@ -22,15 +22,24 @@ pod 'ZDCChat', '1.2.1.1'
 
 ## Installation
 
-ZDSMPlugin is note yet available through [CocoaPods](http://cocoapods.org). 
+ZDSMPlugin is not yet available through [CocoaPods](http://cocoapods.org). 
 
-To install it, copy the "ZDSMPlugin" folder to your project and update the framewrok search paths in your build settings if needed.
+####1. To install it, copy the `ZDSMPlugin` folder to your project and update the framewrok search paths in your build settings if needed.
 
-Include the `ScreenMeetSDK.framework` inside the target's Embedded Binaries.
+######1.1 Be careful with the file referencing and using the "Add files to project" option.
+######1.2 Make sure the "copy to project if needed" is unchecked if you have the `ZDSMPlugin` folder inside the project folder.
 
-Enable the embedded swift code option.
+####2. Include the `ScreenMeetSDK.framework` inside the target's Embedded Binaries.
 
-`Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
+####3. Enable the embedded swift code option.
+
+#####`Project.xcodeproject -> Target -> Build Settings -> Embedded Content Contains Swift Code -> Yes`
+
+####4. Run `pod init` if you don't have a Podfile yet and add the pod dependencies.
+
+#####4.1 Close the .xcproject and open the .xcworkspace if you created a new project and just initiated a new pod.
+
+####5. Run `pod install` to add the dependencies.
 
 ## Setup
 
