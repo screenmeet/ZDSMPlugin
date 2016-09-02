@@ -12,7 +12,8 @@ Before you can start developing with the ScreenMeet SDK, you will need to set up
 
 4. Then click on "Personal URL"
 
-5. The "Link ID" is your room id, which you can modify. The URL at which you will be viewing stream from your developer account is shown below the text input. It will be in the format `https://sandbox.screenmeet.com/[YOUR LINK ID]`.
+5. The "Link ID" is your room id, which you can modify. The URL at which you will be viewing stream from your developer account is shown below the text input. It will be in the format:
+`https://sandbox.screenmeet.com/[YOUR LINK ID]`.
 
 ## Configuring Zendesk Chat
 
