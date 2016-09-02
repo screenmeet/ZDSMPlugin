@@ -25,12 +25,14 @@ pod 'ZDCChat', '1.2.1.1'
 ###ZDSMPlugin is not yet available through [CocoaPods](http://cocoapods.org). 
 
 1. To install it, copy the `ZDSMPlugin` folder to your project and update the framewrok search paths in your build settings if needed.
+
     1. Be careful with the file referencing and using the "Add files to project" option.
         
-    ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss01.png)
+![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss01.png)
+
     2. Make sure the "copy to project if needed" is unchecked if you have the `ZDSMPlugin` folder inside the project folder.
         
-   ![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss02.png)
+![alt text](https://github.com/screenmeet/ZDSMPlugin/blob/master/Screenshots/ss02.png)
 
 2. Include the `ScreenMeetSDK.framework` inside the target's Embedded Binaries.
         
