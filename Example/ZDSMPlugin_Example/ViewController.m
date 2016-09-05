@@ -33,10 +33,6 @@
     [[ZDSMPluginManager sharedManager] showChatWindow:^{
         
     }];
-    
-    [[ZDSMPluginManager sharedManager] showChatWindowFromViewController:self completion:^{
-        
-    }];
 }
 
 @end
